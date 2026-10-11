@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinheiro de Natal 🎄</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #102d24;
+      color: #fff8e8;
+      text-align: center;
+      min-height: 100vh;
+    }
+    header { padding: 28px 16px 10px; }
+    h1 { color: #f7d98b; margin-bottom: 8px; }
+    p { line-height: 1.5; }
+    .tree {
+      font-size: 125px;
+      margin: 20px auto;
+      filter: drop-shadow(0 0 18px #e8c76b);
+    }
+    .panel {
+      background: #fffaf0;
+      color: #24382d;
+      border-radius: 22px 22px 0 0;
+      padding: 24px 18px;
+      min-height: 300px;
+    }
+    input, textarea {
+      width: 100%;
+      max-width: 420px;
+      padding: 14px;
+      margin: 7px 0;
+      border: 1px solid #d8d5c8;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+    button {
+      background: #b72f45;
+      color: white;
+      border: 0;
+      border-radius: 12px;
+      padding: 14px 22px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 8px;
+    }
+    #messages {
+      max-width: 420px;
+      margin: 15px auto;
+      text-align: left;
+    }
+    .message {
+      background: white;
+      border: 1px solid #e5dfd1;
+      border-radius: 12px;
+      padding: 14px;
+      margin: 10px 0;
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meu Pinheiro de Natal 🎄</h1>
+    <p>Um cantinho especial para espalhar carinho.</p>
+    <div class="tree">🎄</div>
+    <p>✨ Que a magia do Natal nos una! ✨</p>
+  </header>
+
+  <section class="panel">
+    <h2>Deixe uma mensagem 💌</h2>
+    <p>Escreva algo especial para compartilhar o espírito natalino.</p>
+
+    <input id="name" placeholder="Seu nome">
+    <textarea id="note" rows="3"
+      placeholder="Escreva sua mensagem de Natal..."></textarea>
+    <br>
+    <button onclick="addMessage()">Adicionar mensagem ❤️</button>
+
+    <div id="messages"></div>
+  </section>
+
+  <script>
+    function addMessage() {
+      const name = document.getElementById("name").value.trim();
+      const note = document.getElementById("note").value.trim();
+
+      if (!name || !note) {
+        alert("Preencha seu nome e sua mensagem!");
+        return;
+      }
+
+      const card = document.createElement("div");
+      card.className = "message";
+
+      const author = document.createElement("strong");
+      author.textContent = "🎁 " + name;
+
+      const text = document.createElement("p");
+      text.textContent = note;
+
+      card.append(author, text);
+      document.getElementById("messages").prepend(card);
+
+      document.getElementById("name").value = "";
+      document.getElementById("note").value = "";
+    }
+  </script>
+</body>
+</html>
